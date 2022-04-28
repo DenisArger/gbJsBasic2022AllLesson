@@ -27,8 +27,13 @@
 -->
 <script>
   "use strict";
+  const numberFromUser = +prompt('Введите число');
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  alert (`В числе ${numberFromUser} количество 
+  сотен: ${Math.trunc(numberFromUser / 100) % 10}, 
+  десятков: ${Math.trunc(numberFromUser / 10) % 10 }, 
+  единиц: ${numberFromUser % 10}`);
+  
 </script>
 </body>
 </html>
