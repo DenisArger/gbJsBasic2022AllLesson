@@ -31,8 +31,76 @@ Infinity делать не нужно, однако, в случае если б
 -->
 <script>
   "use strict";
+ /**
+   * Получает значение операций между двумя первыми аргументами функции.
+   * @param {number} arg1 - 1 число.
+   * @param {number} arg2 - 2 число.
+   * @param {string} operation - операция, одна из возможных строк:
+   * "+", "-", "*", "/".
+   * @return {number} Результат операции operation над аргументами
+*/
+function getMathOperatin (num1, num2, operation){
+  switch (operation) {
+      case '+': 
+        return getSum(num1, num2);
+      case '-': 
+        return getDifference(num1, num2);
+      case '*': 
+        return getMultiplication(num1, num2);
+      case '/': 
+        return getDivision(num1, num2);
+      default: 
+        return NaN;
+  } 
+} 
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+
+/**
+* Возвращает сумму двух чисел
+* @param {number} a - 1 число.
+* @param {number} b - 2 число.
+* @return {number} Сумма чисел.
+*/
+function getSum(a, b){
+  return a + b;
+}
+
+/**
+* Возвращает разницу двух чисел
+* @param {number} a - 1 число.
+* @param {number} b - 2 число.
+* @return {number} Разница чисел.
+*/
+function getDifference(a, b){
+  if (a > b) {
+      return a - b;
+    }else if (a === b) {
+    return 0;
+  }
+  return b - a;
+}
+
+/**
+* Возвращает произведение двух чисел
+* @param {number} a - 1 число.
+* @param {number} b - 2 число.
+* @return {number} Произведение чисел.
+*/
+function getMultiplication(a, b){
+  return a * b;
+}
+
+/**
+ * Возвращает деление двух чисел
+ * @param {number} a - 1 число.
+ * @param {number} b - 2 число.
+ * @return {number} Деление чисел.
+*/
+function getDivision(a, b){
+  if (b !== 0) {
+      return a / b;
+  } 
+}
 </script>
 </body>
 </html>
