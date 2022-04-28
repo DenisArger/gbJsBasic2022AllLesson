@@ -25,8 +25,28 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
 <script>
   "use strict";
 
-  function declinationOfNumber(count, one, two, five) {
+  /**
+   * Функция получения склонения слова для числительного.
+   * @param {number} count - числительное.
+   * @param {string} oneVar - вариант слова для цифры 1 
+   * @param {string} twoVar - вариант слова для цифры 2
+   * @param {string} fiveVar - вариант слова для цифры 5 
+   * @returns {string} склоненное слово.
+   */
+   function declinationOfNumber(count, oneVar, twoVar, fiveVar) {
+    const number100 = Math.abs(count) % 100;
+    const number10 = number100 % 10;
 
+    if (number100 >= 5 && number100 <= 20) {
+      return fiveVar;
+    }
+    if (number10 > 1 && number10 < 5) {
+      return twoVar;
+    }
+    if (number10 === 1) {
+      return oneVar;
+    }
+    return fiveVar;
   }
 
   // Число яблок, можно пробовать поставить свое целое, положительное число.
