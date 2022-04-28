@@ -30,8 +30,52 @@
 -->
 <script>
   "use strict";
+/**
+* Возвращает сумму двух чисел
+* @param {number} a - 1 число.
+* @param {number} b - 2 число.
+* @return {number} Сумма чисел.
+*/
+function getSum(a, b){
+  return a + b;
+}
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+/**
+* Возвращает разницу двух чисел
+* @param {number} a - 1 число.
+* @param {number} b - 2 число.
+* @return {number} Разница чисел.
+*/
+function getDifference(a, b){
+  if (a > b) {
+      return a - b;
+    }else if (a === b) {
+    return 0;
+  }
+  return b - a;
+}
+
+/**
+* Возвращает произведение двух чисел
+* @param {number} a - 1 число.
+* @param {number} b - 2 число.
+* @return {number} Произведение чисел.
+*/
+function getMultiplication(a, b){
+  return a * b;
+}
+
+/**
+ * Возвращает деление двух чисел
+ * @param {number} a - 1 число.
+ * @param {number} b - 2 число.
+ * @return {number} Деление чисел.
+*/
+function getDivision(a, b){
+  if (b !== 0) {
+      return a / b;
+  } 
+}
 </script>
 </body>
 </html>
