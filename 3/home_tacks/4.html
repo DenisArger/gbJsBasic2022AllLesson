@@ -44,7 +44,14 @@
     },
   ];
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  const filterArray = products.filter(function(product){
+    return product.photos?.length>0;
+  });
+
+  products.sort(function(product1, product2){
+    return product1.price - product2.price;
+  });
+  console.log(products);
 </script>
 </body>
 </html>
