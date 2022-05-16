@@ -50,7 +50,83 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+  function PostES5 (author, textPost){
+    this.author = author;
+    this.textPost = textPost;
+    this.lastUpdate = new Date();
+  }
+
+  PostES5.prototype.edit =  function (textPost){
+    this.textPost = textPost;
+    this.lastUpdate = new Date();
+  }
+  
+  const post1 = new PostES5('Денис', 'Всем привет!');
+  console.log(post1);
+  post1.edit('Всем пока!');
+  console.log(post1);
+
+
+
+
+
+  function AttachedPostES5(author, textPost){
+    PostES5.call(this, author, textPost);
+    this.highlighted =  false;
+  }
+
+  AttachedPostES5.prototype = Object.create(PostES5.prototype);
+  AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+  
+  AttachedPostES5.prototype.makeTextHighlighted =  function(){
+    this.highlighted = true;
+    this.lastUpdate = new Date();
+  }
+
+  const postAttached1 = new AttachedPostES5('Денис', 'Важное сообщение!');
+  console.log(postAttached1);
+  postAttached1.makeTextHighlighted();
+  postAttached1.edit('Отмена!');
+  console.log(postAttached1);
+
+
+
+
+
+
+  class PostES6{
+    constructor (author, textPost){
+      this.author = author;
+      this.textPost = textPost;
+      this.lastUpdate = new Date();
+    }
+    edit(textPost){
+      this.textPost = textPost;
+      this.lastUpdate = new Date();
+    }
+  }
+
+  const post2 = new PostES6('Денис Новый', 'Всем снова привет!');
+  console.log(post2);
+  post1.edit('Всем опять пока!');
+  console.log(post2);
+
+  class AttachedPostES6 extends PostES6{
+    constructor (author, textPost){
+      super(author, textPost);
+    }
+    makeTextHighlighted =  function(){
+      this.highlighted = true;
+      this.lastUpdate = new Date();
+    }
+  }
+
+  const postAttached2 = new AttachedPostES6('Денис Новый', 'Важное новое сообщение!');
+  console.log(postAttached2);
+  postAttached2.makeTextHighlighted();
+  postAttached2.edit('Отмена вновь!');
+  console.log(postAttached2);
+  </script>
 </body>
 </html>
