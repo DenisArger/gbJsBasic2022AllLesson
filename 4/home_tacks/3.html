@@ -30,8 +30,25 @@
 -->
 <script>
   "use strict";
+  function getDigitsOfNumber(number){
+    if(number < 0 || number > 999){
+      console.error('Данное число не подходит');
+      return {};
+    } else if(!Number.isInteger(number)){
+      console.error('Вы ввели не число!');
+      return {};
+    }
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+    return {
+      units: number % 10,
+      dozens: Math.floor(number / 10) % 10,
+      hundreds: Math.floor(number / 100),
+    }
+  }
+
+  console.log(getDigitsOfNumber('kkkk'));
+  console.log(getDigitsOfNumber('12345566'));
+  console.log(getDigitsOfNumber(987));
 </script>
 </body>
 </html>
